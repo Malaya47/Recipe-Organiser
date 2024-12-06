@@ -10,7 +10,7 @@ function App() {
 
   const getAllRecipies = async () => {
     const response = await axios.get(
-      "https://recipe-organiser-backend-6m2pca759-malayas-projects-d405c886.vercel.app/recipes"
+      "https://recipe-organiser-backend-three.vercel.app/recipes"
     );
 
     setRecipies(response.data.recipies);
