@@ -6,7 +6,9 @@ const Header = () => {
     <header>
       <nav className="navbar bg-body-tertiary">
         <div className="container-fluid container">
-          <a className="navbar-brand">Recipe Organiser</a>
+          <NavLink to={"/"} className="navbar-brand">
+            Recipe Organiser
+          </NavLink>
           <div className="d-flex gap-3">
             <div>
               <NavLink
