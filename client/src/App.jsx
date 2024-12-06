@@ -33,7 +33,7 @@ function App() {
     <>
       <Header />
       {/* search bar */}
-      <section className="container">
+      <section className="container mt-4">
         <div className="input-group input-group-sm mb-3 w-50">
           <input
             onChange={searchValueChangeHandler}
@@ -49,7 +49,10 @@ function App() {
       <h2 className="container">All Recipes:</h2>
 
       <section>
-        <Card recipies={finalRecipiesToDisplay} />
+        <Card
+          recipies={finalRecipiesToDisplay}
+          getAllRecipies={getAllRecipies}
+        />
       </section>
     </>
   );

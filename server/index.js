@@ -73,6 +73,23 @@ app.get("/recipe/id/:id", async (req, res) => {
   }
 });
 
+app.delete("/deleteRecipe/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const deleteRecipe = await RecipeSecond.findByIdAndDelete(id);
+
+    if (!deleteRecipe) {
+      return res.status(404).json({ message: "Recipe not found" });
+    }
+
+    res.status(200).json({ message: "Recipe deleted successfully" });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "An error occured while deleting recipe", error });
+  }
+});
+
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on PORT ${PORT}`);

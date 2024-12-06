@@ -9,12 +9,20 @@ const Header = () => {
           <a className="navbar-brand">Recipe Organiser</a>
           <div className="d-flex gap-3">
             <div>
-              <NavLink className="" to={"/"}>
+              <NavLink
+                className="text-decoration-none text-primary fs-5"
+                to={"/"}
+              >
                 Recipes
               </NavLink>
             </div>
             <div>
-              <NavLink to={"/addRecipe"}>Add Recipe</NavLink>
+              <NavLink
+                className="text-decoration-none text-primary fs-5"
+                to={"/addRecipe"}
+              >
+                Add Recipe
+              </NavLink>
             </div>
           </div>
         </div>

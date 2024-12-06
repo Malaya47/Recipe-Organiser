@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-const Card = ({ recipies }) => {
+const Card = ({ recipies, getAllRecipies }) => {
+  const deleteRecipeHandler = async (id) => {
+    const response = await axios.delete(
+      `http://localhost:3000/deleteRecipe/${id}`
+    );
+
+    getAllRecipies();
+  };
+
   return (
     <section className="container">
       <div className="row">
@@ -40,7 +49,12 @@ const Card = ({ recipies }) => {
                   </span>
                 </p>
 
-                <button className="btn btn-danger">Delete</button>
+                <button
+                  onClick={() => deleteRecipeHandler(recipe._id)}
+                  className="btn btn-danger"
+                >
+                  Delete
+                </button>
               </div>
             </div>
           </div>
