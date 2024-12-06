@@ -11,16 +11,20 @@ const recipeSchema = new mongoose.Schema(
     imageLink: {
       type: String,
     },
-    ingredients: {
-      type: String,
-    },
-    instructions: {
-      type: String
-    }
+    ingredients: [
+      {
+        type: String
+      }
+    ],
+    instructions: [
+      {
+        type: String
+      }
+    ],
   },
   { timestamps: true }
 );
 
-const Recipe = mongoose.model("Recipe", recipeSchema);
+const RecipeSecond = mongoose.model("RecipeSecond", recipeSchema);
 
-module.exports = { Recipe };
+module.exports = { RecipeSecond };
