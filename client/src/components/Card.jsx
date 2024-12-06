@@ -1,40 +1,50 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Card = () => {
+const Card = ({ recipies }) => {
   return (
     <section className="container">
-      <div className="row gap-2">
-        <div className="card col-3 ps-0 pe-0" style={{ width: "18rem" }}>
-          <img
-            src="https://images.pexels.com/photos/23897672/pexels-photo-23897672/free-photo-of-curry-chicken-in-bowl.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            className="card-img-top"
-            alt="..."
-          />
-          <div className="card-body">
-            <h5 className="card-title">Chicken Curry</h5>
-            <p className="fw-bold">Cuisine Type:</p>
-            <p className="fw-bold">Ingredients:</p>
-            <p className="fw-bold">Instructions:</p>
+      <div className="row">
+        {recipies?.map((recipe) => (
+          <div
+            key={recipe._id}
+            className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex align-items-stretch"
+          >
+            <div className="card h-100">
+              <img
+                src={recipe.imageLink}
+                className="card-img-top"
+                alt={recipe.recipeName}
+              />
+              <div className="card-body">
+                <h5 className="card-title">{recipe.recipeName}</h5>
+                <p>
+                  <span className="fw-bold">Cuisine Type:</span>{" "}
+                  {recipe.cuisineType}
+                </p>
+                <p>
+                  <span className="fw-bold me-2">Ingredients:</span>
+                  <span>
+                    <Link to={`/recipeDetails/${recipe._id}`}>
+                      See Recipe {">"}{" "}
+                    </Link>
+                  </span>
+                </p>
 
-            <button className="btn btn-danger">Delete</button>
+                <p>
+                  <span className="fw-bold me-2">Instructions:</span>
+                  <span>
+                    <Link to={`/recipeDetails/${recipe._id}`}>
+                      See Recipe {">"}{" "}
+                    </Link>
+                  </span>
+                </p>
+
+                <button className="btn btn-danger">Delete</button>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div className="card col-3 ps-0 pe-0" style={{ width: "18rem" }}>
-          <img
-            src="https://images.pexels.com/photos/23897672/pexels-photo-23897672/free-photo-of-curry-chicken-in-bowl.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            className="card-img-top"
-            alt="..."
-          />
-          <div className="card-body">
-            <h5 className="card-title">Chicken Curry</h5>
-            <p className="fw-bold">Cuisine Type:</p>
-            <p className="fw-bold">Ingredients:</p>
-            <p className="fw-bold">Instructions:</p>
-
-            <button className="btn btn-danger">Delete</button>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );

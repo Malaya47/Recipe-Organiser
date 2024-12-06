@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AddRecipe from "./pages/AddRecipe.jsx";
+import RecipeDetailsPage from "./pages/RecipeDetailsPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/addRecipe",
     element: <AddRecipe />,
+  },
+  {
+    path: "/recipeDetails/:id",
+    element: <RecipeDetailsPage />,
   },
 ]);
 
