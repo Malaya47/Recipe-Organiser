@@ -9,7 +9,9 @@ const RecipeDetailsPage = () => {
   const { id } = useParams();
 
   const getRecipeById = async (id) => {
-    const response = await axios.get(`http://localhost:3000/recipe/id/${id}`);
+    const response = await axios.get(
+      `https://recipe-organiser-backend-6m2pca759-malayas-projects-d405c886.vercel.app/${id}`
+    );
 
     setRecipeDetails(response?.data?.recipe);
   };

@@ -5,7 +5,7 @@ import axios from "axios";
 const Card = ({ recipies, getAllRecipies }) => {
   const deleteRecipeHandler = async (id) => {
     const response = await axios.delete(
-      `http://localhost:3000/deleteRecipe/${id}`
+      `https://recipe-organiser-backend-6m2pca759-malayas-projects-d405c886.vercel.app/${id}`
     );
 
     getAllRecipies();

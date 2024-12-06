@@ -9,7 +9,9 @@ function App() {
   const [searchValue, setSearchValue] = useState("");
 
   const getAllRecipies = async () => {
-    const response = await axios.get("http://localhost:3000/recipes");
+    const response = await axios.get(
+      "https://recipe-organiser-backend-6m2pca759-malayas-projects-d405c886.vercel.app/recipes"
+    );
 
     setRecipies(response.data.recipies);
   };
