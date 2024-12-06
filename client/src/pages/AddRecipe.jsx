@@ -20,13 +20,10 @@ const AddRecipe = () => {
       instructions: instructions.split("\n"),
     };
 
-
     const response = await axios.post(
-      "http://localhost:3000/recipe/addRecipe",
+      "https://recipe-organiser-backend-three.vercel.app/recipe/addRecipe",
       recipeData
     );
-
-   
 
     setRecipeName("");
     setCuisineType("");
