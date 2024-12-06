@@ -10,7 +10,7 @@ const RecipeDetailsPage = () => {
 
   const getRecipeById = async (id) => {
     const response = await axios.get(
-      `https://recipe-organiser-backend-three.vercel.app/${id}`
+      `https://recipe-organiser-backend-three.vercel.app/recipe/id${id}`
     );
 
     setRecipeDetails(response?.data?.recipe);
