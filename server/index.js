@@ -56,6 +56,23 @@ app.get("/recipes", async (req, res) => {
   }
 });
 
+app.get("/recipe/id/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const recipe = await RecipeSecond.findById({ _id: id });
+
+    if (recipe) {
+      res.status(200).json({ message: "Recipe found", recipe });
+    } else {
+      res.status(404).json({ message: "No recipe found" });
+    }
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "An error occured while getting the recipe", error });
+  }
+});
+
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on PORT ${PORT}`);
